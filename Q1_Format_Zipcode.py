@@ -139,6 +139,10 @@ class TestZipCode(unittest.TestCase):
 
         print("Testing without providing the function argument")
         self.assertRaises(TypeError, format_zipcode)
+        
+        print("Testing with passing integer argument, instead of string")
+        self.assertRaises(TypeError, format_zipcode, 12345)
+        
         print('*' * 80)
 
 
