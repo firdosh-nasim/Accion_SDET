@@ -94,7 +94,7 @@ class TestZipCode(unittest.TestCase):
                   f"Expecting: '{expected_result}'." 
                   f"Obtained: '{obtained_result}'")
 
-            self.assertEqual(expected_result, obtained_result)
+            self.assertIsNone(obtained_result)
 
         print('*' * 80)
 
