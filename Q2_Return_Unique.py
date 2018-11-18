@@ -147,7 +147,3 @@ class TestUniqueStringRoutine(unittest.TestCase):
 # main() routine to call the unit test
 if __name__ == "__main__":
     unittest.main()
-    #print(return_unique("Hello World", "Beautiful World"))
-    #print(return_unique("aabcdx", "ycdef"))
-    #print(return_unique("abcd", "abcd"))
-    #print(return_unique(1234, 334))
