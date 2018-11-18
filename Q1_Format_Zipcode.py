@@ -58,8 +58,8 @@ class TestZipCode(unittest.TestCase):
         for input_val, expected_result in testcases.items():
             obtained_result = format_zipcode(input_val)
             print(f"Testing with input: '{input_val}'."
-                  f"Expecting: '{expected_result}'."
-                  f"Obtained: '{obtained_result}'")
+                  f" Expecting: '{expected_result}'."
+                  f" Obtained: '{obtained_result}'")
 
             self.assertEqual(expected_result, obtained_result)
 
@@ -91,8 +91,8 @@ class TestZipCode(unittest.TestCase):
         for input_val, expected_result in testcases.items():
             obtained_result = format_zipcode(input_val)
             print(f"Testing with input: '{input_val}'."
-                  f"Expecting: '{expected_result}'." 
-                  f"Obtained: '{obtained_result}'")
+                  f" Expecting: '{expected_result}'." 
+                  f" Obtained: '{obtained_result}'")
 
             self.assertIsNone(obtained_result)
 
@@ -122,8 +122,8 @@ class TestZipCode(unittest.TestCase):
         for input_val, expected_result in testcases.items():
             obtained_result = format_zipcode(input_val)
             print(f"Testing with input: '{input_val}'."
-                  f"Expecting: '{expected_result}'."
-                  f"Obtained: '{obtained_result}'")
+                  f" Expecting: '{expected_result}'."
+                  f" Obtained: '{obtained_result}'")
 
             self.assertEqual(expected_result, obtained_result)
 
@@ -133,18 +133,22 @@ class TestZipCode(unittest.TestCase):
         """
         Testcase to exercise exceptions
         """
+        
+        print(" Testing Exceptions ".center(80, '*'))
+        
         # Testing scenario, without passing the input argument.
         # This is expected to throw a 'TypeError'
-        print(" Testing Exceptions ".center(80, '*'))
-
         print("Testing without providing the function argument")
         self.assertRaises(TypeError, format_zipcode)
         
+        # Testing scenario, passing an integer input argument.
+        # This is expected to throw a 'TypeError'
         print("Testing with passing integer argument, instead of string")
         self.assertRaises(TypeError, format_zipcode, 12345)
         
         print('*' * 80)
 
 
+# main() routine to call the unit test
 if __name__ == "__main__":
     unittest.main()
