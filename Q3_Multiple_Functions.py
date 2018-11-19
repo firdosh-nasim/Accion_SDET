@@ -29,6 +29,7 @@ N/A
 
 import unittest
 import sys
+import os
 
 """
 a. Write a function that accepts an integer and returns True if the input is 
@@ -60,8 +61,19 @@ c. Write a function that accepts a file name and a string and writes the string
  to the file with the given file name.
 """
 def write_to_file(in_filename, in_string):
-    with open (in_filename, 'w') as file_handle:
-        file_handle.write(in_string)
+    
+    # As per the requirement, the function should take only string input.
+    # Therefore checking for the same
+    if not (type(in_string) == str):
+        raise TypeError("Given input is not a 'string'")
+        
+    try:
+        with open (in_filename, 'w') as file_handle:
+            file_handle.write(in_string)
+    except:
+            raise sys.exc_info()[0](sys.exc_info()[1])
+    else: 
+        return True
 
 """
 d. Write a function that accepts a list and doubles each value in the list. 
@@ -183,8 +195,59 @@ class TestMultipleFunctions(unittest.TestCase):
         """
 
         print(" Testing write_to_file() ".center(80, '*'))
+        
+        """
+        Positive Testcases
+        """
+        # Valid file at current folder and valid input string
+        file_name = 'sample.txt'
+        in_string = "Valid file at current folder and valid input string"
+        print(f"Testing with file: '{file_name}' and  string: '{in_string}'")
+        self.assertTrue(write_to_file(file_name, in_string))
+        
+        # Overwrting an existing file. File was created in previous testcase
+        file_name = 'sample.txt'
+        in_string = "Overwrting an existing file. File was created in previous testcase"
+        print(f"Testing with file: '{file_name}' and  string: '{in_string}'")
+        self.assertTrue(write_to_file(file_name, in_string))
+        
+        # Valid file at differnt folder and valid input string
+        # Note: Plese have the directory created
+        file_name = os.path.join('sample_folder', 'sample.txt')
+        in_string = "Valid file at differnt folder and valid input string"
+        print(f"Testing with file: '{file_name}' and  string: '{in_string}'")
+        self.assertTrue(write_to_file(file_name, in_string))
 
+        """
+        Negative Testcases
+        """
+        # Valid file at current folder and  non-string input
+        file_name = 'sample.txt'
+        in_string = 12345
+        print(f"Testing with file: '{file_name}' and  non-string input: {in_string}")
+        self.assertRaises(TypeError, write_to_file, file_name, in_string)
 
+        # File at non-exiting folder
+        file_name = os.path.join('non_existing_folder', 'sample.txt')
+        in_string = "This will throw an exception: FileNotFoundError"
+        print(f"Testing with file: '{file_name}' and  non-string input: {in_string}")
+        self.assertRaises(FileNotFoundError, write_to_file, file_name, in_string)
+
+        # Writing to a hidden file at current folder
+        # Note: Please create a hidden file named 'hidden_file.txt'
+        file_name = 'hidden_file.txt'
+        in_string = "This will throw an exception: PermissionError"
+        print(f"Testing with file: '{file_name}' and  non-string input: {in_string}")
+        self.assertRaises(PermissionError, write_to_file, file_name, in_string)
+        
+        # Writing to a readonly file at current folder
+        # Note: Please create a read-only file 'readonly_file.txt'
+        file_name = 'readonly_file.txt'
+        in_string = "This will throw an exception: PermissionError"
+        print(f"Testing with file: '{file_name}' and  non-string input: {in_string}")
+        self.assertRaises(PermissionError, write_to_file, file_name, in_string)
+
+        
         print('*' * 80)
 
     def test_4_double_list_elements(self):
@@ -257,4 +320,6 @@ class TestMultipleFunctions(unittest.TestCase):
 if __name__ == "__main__":
 
     unittest.main()
+
+
 
