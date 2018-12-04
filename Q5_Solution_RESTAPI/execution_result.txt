@@ -1,0 +1,280 @@
+HTTP/1.0 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 213
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:15 GMT
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Accion: Python SDET Hirevue</title>
+    </head>
+
+    <body>
+        <h1>Solution for Q5 (REST API)</h1>
+    </body>
+</html>"-------------------------------------------------------"  
+"COMMAND: curl -i -X GET  http://127.0.0.1:5000/widgets"  
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 130
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:16 GMT
+
+{
+  "widgets": [
+    {
+      "description": "Description", 
+      "widget_id": 1, 
+      "widget_name": "Test Widget"
+    }
+  ]
+}
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X POST -H "X-Auth-Token:5675309" -H "Content-Type:application/json" http://127.0.0.1:5000/widgets -d "{\"widget_name\": \"Test Widget\", \"description\": \"Description\"}" "
+HTTP/1.0 201 CREATED
+Content-Type: application/json
+Content-Length: 87
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:16 GMT
+
+{
+  "description": "Description", 
+  "widget_id": 2, 
+  "widget_name": "Test Widget"
+}
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X POST -H "X-Auth-Token:5675309" -H "Content-Type:application/json" http://127.0.0.1:5000/widgets -d "{\"widget_name\": \"Test Widget\", \"description\": \"Description\"}" "
+HTTP/1.0 201 CREATED
+Content-Type: application/json
+Content-Length: 87
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:17 GMT
+
+{
+  "description": "Description", 
+  "widget_id": 3, 
+  "widget_name": "Test Widget"
+}
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X GET  http://127.0.0.1:5000/widgets "
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 348
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:17 GMT
+
+{
+  "widgets": [
+    {
+      "description": "Description", 
+      "widget_id": 1, 
+      "widget_name": "Test Widget"
+    }, 
+    {
+      "description": "Description", 
+      "widget_id": 2, 
+      "widget_name": "Test Widget"
+    }, 
+    {
+      "description": "Description", 
+      "widget_id": 3, 
+      "widget_name": "Test Widget"
+    }
+  ]
+}
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X POST -H "X-Auth-Token:5675309" -H "Content-Type:application/json" http://127.0.0.1:5000/widgets -d "{\"widget_id\": 50, \"widget_name\": \"Test Widget\", \"description\": \"Description\"}" "
+HTTP/1.0 201 CREATED
+Content-Type: application/json
+Content-Length: 88
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:17 GMT
+
+{
+  "description": "Description", 
+  "widget_id": 50, 
+  "widget_name": "Test Widget"
+}
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X GET  http://127.0.0.1:5000/widgets "
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 458
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:17 GMT
+
+{
+  "widgets": [
+    {
+      "description": "Description", 
+      "widget_id": 1, 
+      "widget_name": "Test Widget"
+    }, 
+    {
+      "description": "Description", 
+      "widget_id": 2, 
+      "widget_name": "Test Widget"
+    }, 
+    {
+      "description": "Description", 
+      "widget_id": 3, 
+      "widget_name": "Test Widget"
+    }, 
+    {
+      "description": "Description", 
+      "widget_id": 50, 
+      "widget_name": "Test Widget"
+    }
+  ]
+}
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X GET  http://127.0.0.1:5000/widgets/1" 
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 87
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:18 GMT
+
+{
+  "description": "Description", 
+  "widget_id": 1, 
+  "widget_name": "Test Widget"
+}
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X GET  http://127.0.0.1:5000/widgets/100 "
+HTTP/1.0 400 BAD REQUEST
+Content-Type: application/json
+Content-Length: 63
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:18 GMT
+
+{
+  "GET_FAILED": "Widget with mentioned ID '100' not found"
+}
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X PUT -H "X-Auth-Token:5675309" -H "Content-Type:application/json" http://127.0.0.1:5000/widgets/1 -d "{\"description\": \"A new description\"}" "
+HTTP/1.0 204 NO CONTENT
+Content-Type: application/json
+Content-Length: 0
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:18 GMT
+
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X GET  http://127.0.0.1:5000/widgets "
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 464
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:19 GMT
+
+{
+  "widgets": [
+    {
+      "description": "A new description", 
+      "widget_id": 1, 
+      "widget_name": "Test Widget"
+    }, 
+    {
+      "description": "Description", 
+      "widget_id": 2, 
+      "widget_name": "Test Widget"
+    }, 
+    {
+      "description": "Description", 
+      "widget_id": 3, 
+      "widget_name": "Test Widget"
+    }, 
+    {
+      "description": "Description", 
+      "widget_id": 50, 
+      "widget_name": "Test Widget"
+    }
+  ]
+}
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X PUT -H "X-Auth-Token:5675309" -H "Content-Type:application/json" http://127.0.0.1:5000/widgets/100 -d "{\"description\": \"A new description\"}" "
+HTTP/1.0 400 BAD REQUEST
+Content-Type: application/json
+Content-Length: 63
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:19 GMT
+
+{
+  "PUT_FAILED": "Widget with mentioned ID '100' not found"
+}
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X DELETE -H "X-Auth-Token:5675309" -H "Content-Type:application/json" http://127.0.0.1:5000/widgets/2 "
+HTTP/1.0 204 NO CONTENT
+Content-Type: application/json
+Content-Length: 0
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:19 GMT
+
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X GET  http://127.0.0.1:5000/widgets "
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 355
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:19 GMT
+
+{
+  "widgets": [
+    {
+      "description": "A new description", 
+      "widget_id": 1, 
+      "widget_name": "Test Widget"
+    }, 
+    {
+      "description": "Description", 
+      "widget_id": 3, 
+      "widget_name": "Test Widget"
+    }, 
+    {
+      "description": "Description", 
+      "widget_id": 50, 
+      "widget_name": "Test Widget"
+    }
+  ]
+}
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X DELETE -H "X-Auth-Token:5675309" -H "Content-Type:application/json" http://127.0.0.1:5000/widgets/100 "
+HTTP/1.0 400 BAD REQUEST
+Content-Type: application/json
+Content-Length: 66
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:19 GMT
+
+{
+  "DELETE_FAILED": "Widget with mentioned ID '100' not found"
+}
+"-------------------------------------------------------" 
+"COMMAND: curl -i -X GET  http://127.0.0.1:5000/widgets "
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 355
+Server: Werkzeug/0.12.2 Python/3.6.3
+Date: Tue, 04 Dec 2018 04:59:20 GMT
+
+{
+  "widgets": [
+    {
+      "description": "A new description", 
+      "widget_id": 1, 
+      "widget_name": "Test Widget"
+    }, 
+    {
+      "description": "Description", 
+      "widget_id": 3, 
+      "widget_name": "Test Widget"
+    }, 
+    {
+      "description": "Description", 
+      "widget_id": 50, 
+      "widget_name": "Test Widget"
+    }
+  ]
+}
+"-------------------------------------------------------" 

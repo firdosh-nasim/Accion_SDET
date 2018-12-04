@@ -1,0 +1,24 @@
+Microsoft Windows [Version 10.0.17134.407]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Backup\INSOFE\OneDrive\Accion_Rackspace\git_copy\Accion_SDET\Q5_Solution_RESTAPI>python app.py
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 161-089-528
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [04/Dec/2018 10:29:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Dec/2018 10:29:16] "GET /widgets HTTP/1.1" 200 -
+127.0.0.1 - - [04/Dec/2018 10:29:16] "POST /widgets HTTP/1.1" 201 -
+127.0.0.1 - - [04/Dec/2018 10:29:17] "POST /widgets HTTP/1.1" 201 -
+127.0.0.1 - - [04/Dec/2018 10:29:17] "GET /widgets HTTP/1.1" 200 -
+127.0.0.1 - - [04/Dec/2018 10:29:17] "POST /widgets HTTP/1.1" 201 -
+127.0.0.1 - - [04/Dec/2018 10:29:17] "GET /widgets HTTP/1.1" 200 -
+127.0.0.1 - - [04/Dec/2018 10:29:18] "GET /widgets/1 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Dec/2018 10:29:18] "GET /widgets/100 HTTP/1.1" 400 -
+127.0.0.1 - - [04/Dec/2018 10:29:18] "PUT /widgets/1 HTTP/1.1" 204 -
+127.0.0.1 - - [04/Dec/2018 10:29:19] "GET /widgets HTTP/1.1" 200 -
+127.0.0.1 - - [04/Dec/2018 10:29:19] "PUT /widgets/100 HTTP/1.1" 400 -
+127.0.0.1 - - [04/Dec/2018 10:29:19] "DELETE /widgets/2 HTTP/1.1" 204 -
+127.0.0.1 - - [04/Dec/2018 10:29:19] "GET /widgets HTTP/1.1" 200 -
+127.0.0.1 - - [04/Dec/2018 10:29:19] "DELETE /widgets/100 HTTP/1.1" 400 -
+127.0.0.1 - - [04/Dec/2018 10:29:20] "GET /widgets HTTP/1.1" 200 -
